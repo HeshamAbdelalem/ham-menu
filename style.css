@@ -147,12 +147,46 @@ body {
     visibility: hidden;
 }
 
+.menu-wrap .menu>div {
+    height: 400vh;
+    width: 400vw;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+}
+
+.menu-wrap .menu>div>div {
+    text-align: center;
+    max-width: 100vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.menu-wrap .toggler:checked~.menu>div {
+    transform: scale(1);
+    transition-duration: 0.75s;
+}
+
+.menu-wrap .toggler:checked~.menu>div>div {
+    opacity: 1;
+    transition: opacity 0.4s ease 0.4s;
+}
+
 .menu-wrap .menu li {
     color: whitesmoke;
     list-style: none;
     font-size: 1.5rem;
     padding: 1.5rem 0;
     text-transform: capitalize;
+}
+
+.menu-wrap .menu li:hover {
+    color: var(--hover-color);
+    cursor: pointer;
 }
 
 .menu-wrap .toggler:checked~.menu {
